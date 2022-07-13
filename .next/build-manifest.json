@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/if0ySAAflRkzxvt_MyLkF/_buildManifest.js",
-    "static/if0ySAAflRkzxvt_MyLkF/_ssgManifest.js",
-    "static/if0ySAAflRkzxvt_MyLkF/_middlewareManifest.js"
+    "static/7oZvraf5d1h1Bl9ZywKAb/_buildManifest.js",
+    "static/7oZvraf5d1h1Bl9ZywKAb/_ssgManifest.js",
+    "static/7oZvraf5d1h1Bl9ZywKAb/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -32,7 +32,7 @@
       "static/chunks/webpack-f8fe1f0eb2299c5d.js",
       "static/chunks/framework-6e4ba497ae0c8a3f.js",
       "static/chunks/main-e47bb435dabe4202.js",
-      "static/chunks/pages/fullpost-222bdf803f472857.js"
+      "static/chunks/pages/fullpost-af6167ebb0ca5e61.js"
     ],
     "/posts/[id]": [
       "static/chunks/webpack-f8fe1f0eb2299c5d.js",

@@ -88,6 +88,7 @@ function Post({ title, content, id }) {
             display: " block",
             color: "#F9703E",
             marginBottom: "8px",
+            cursor:"pointer"
           }}
         >
           {title}

@@ -105,7 +105,8 @@ function Post({ title , content , id  }) {
                     styleSheet: {
                         display: " block",
                         color: "#F9703E",
-                        marginBottom: "8px"
+                        marginBottom: "8px",
+                        cursor: "pointer"
                     },
                     children: title
                 })
