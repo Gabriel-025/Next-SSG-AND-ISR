@@ -29,7 +29,7 @@ async function getStaticProps() {
         props: {
             posts: post.posts
         },
-        revalidate: 60
+        revalidate: 120
     };
 }
 function HomeScreen({ posts  }) {

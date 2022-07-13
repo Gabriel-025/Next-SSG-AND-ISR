@@ -33,13 +33,7 @@ const router_namespaceObject = require("next/router");
 
 // dica dos paths estáticos
 async function getStaticPaths() {
-    // const dadosDaAPI = await fetch('https://fakeapi-omariosouto.vercel.app/api/posts')
-    //   .then((res) => res.json());
-    // const paths = dadosDaAPI.posts.map((postAtual) => {
-    //   return { params: { id: `${postAtual.id}` } };
-    // })
     return {
-        // paths: paths,
         paths: [],
         fallback: 'blocking' // false or 'blocking'
     };
@@ -50,12 +44,6 @@ async function getStaticProps(context) {
     const dadosDaAPI = await fetch(`https://fakeapi-omariosouto.vercel.app/api/posts/${id}`).then((res)=>res.json()
     );
     const post = dadosDaAPI;
-    // const post = dados.posts.find((currentPost) => {
-    //   if(currentPost.id === id) {
-    //     return true;
-    //   }
-    //   return false;
-    // })
     return {
         props: {
             id: post.id,
@@ -64,7 +52,7 @@ async function getStaticProps(context) {
             content: post.content,
             video: post.video
         },
-        revalidate: 60
+        revalidate: 120
     };
 }
 function PostByIdScreen(props) {
