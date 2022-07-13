@@ -1,19 +1,25 @@
 import NextLink from 'next/link';
 import { Box, Text, Image } from '@skynexui/components';
-import dados from '../dados.json';
+
 
 export async function getStaticProps() {
+  const dadosDaAPI = await fetch(
+    `https://fakeapi-omariosouto.vercel.app/api/posts/`
+  ).then((res) => res.json());
+  const post = dadosDaAPI;
+
   return {
     props: {
-      posts: dados.posts,
+      posts: post.posts,
     },
+    revalidate: 10 * 60,
   };
 }
 
 export default function HomeScreen({ posts }) {
   const infos = {
-    nome: 'Mario Souto',
-    githubUser: 'omariosouto',
+    nome: 'Gabriel Machado',
+    githubUser: 'Gabriel-025',
   }
   // const posts = dados.posts;
   return (

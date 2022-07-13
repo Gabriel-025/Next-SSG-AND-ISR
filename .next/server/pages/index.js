@@ -5,45 +5,40 @@ exports.id = 405;
 exports.ids = [405];
 exports.modules = {
 
-/***/ 767:
+/***/ 678:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ HomeScreen),
-  "getStaticProps": () => (/* binding */ getStaticProps)
-});
-
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(997);
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(664);
-// EXTERNAL MODULE: external "@skynexui/components"
-var components_ = __webpack_require__(704);
-;// CONCATENATED MODULE: ./dados.json
-const dados_namespaceObject = JSON.parse('{"x":[{"id":"1","video":"https://www.youtube.com/embed/-6JwElEt49w","title":"Git e GitHub: Como subir meu primeiro projeto? Como versionar um projeto? #BaseDev #DevIniciante","content":"Você que ta dando seus primeiros passos como dev, chegou a hora de aprender a usar o GitHub pra guardar seus projetos! Nesse vídeo vamos juntos subir um projeto do ZERO, explicando passo a passo, lendo as mensagens pra você de hoje em diante usar pra sempre!","date":"21/01/2022"},{"id":"2","video":"https://www.youtube.com/embed/aDKxJfJiM28","title":"CSS-in-JS na prática! Criando componentes com React e CSS no NextJS","content":"Você ai já ouviu falar de CSS in JS correto? E se eu ti disser que nesse vídeo você vai ver na prática as vantagens e vai inclusive criar a base de uma lib? �  então senta ai na cadeira, pega a pipoca e vamo pro vídeo!","date":"14/01/2022"},{"id":"3","video":"https://www.youtube.com/embed/R41_Qedrzik","title":"Como documentar códigos? Documentando Front End com Storybook!","content":"Como você documenta seus códigos hoje? Nesse vídeo vou mostrar passo a passo como faço pra adicionar o storybook em um projeto, documentando um componente, gerando a doc interativa dele e muito mais! Mostrando ali o REAL camino das pedras pra você começar a usar em seus ","date":"08/01/2022"},{"id":"4","video":"https://www.youtube.com/embed/R41_Qedrzik","title":"Como documentar códigos? Documentando Front End com Storybook!","content":"Como você documenta seus códigos hoje? Nesse vídeo vou mostrar passo a passo como faço pra adicionar o storybook em um projeto, documentando um componente, gerando a doc interativa dele e muito mais! Mostrando ali o REAL camino das pedras pra você começar a usar em seus ","date":"08/01/2022"}]}');
-;// CONCATENATED MODULE: ./pages/index.js
-
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getStaticProps": () => (/* binding */ getStaticProps),
+/* harmony export */   "default": () => (/* binding */ HomeScreen)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(664);
+/* harmony import */ var _skynexui_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(704);
+/* harmony import */ var _skynexui_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 async function getStaticProps() {
+    const dadosDaAPI = await fetch(`https://fakeapi-omariosouto.vercel.app/api/posts/`).then((res)=>res.json()
+    );
+    const post = dadosDaAPI;
     return {
         props: {
-            posts: dados_namespaceObject.x
-        }
+            posts: post.posts
+        },
+        revalidate: 10 * 60
     };
 }
 function HomeScreen({ posts  }) {
     const infos = {
-        nome: 'Mario Souto',
-        githubUser: 'omariosouto'
+        nome: 'Gabriel Machado',
+        githubUser: 'Gabriel-025'
     };
     // const posts = dados.posts;
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(components_.Box, {
+    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
         styleSheet: {
             flexDirection: 'column',
             margin: '32px auto',
@@ -51,7 +46,7 @@ function HomeScreen({ posts  }) {
             paddingHorizontal: '16px'
         },
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(components_.Image, {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Image, {
                 src: `https://github.com/${infos.githubUser}.png`,
                 styleSheet: {
                     width: '150px',
@@ -61,7 +56,7 @@ function HomeScreen({ posts  }) {
                     border: '2px solid #F9703E'
                 }
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
                 variant: "heading1",
                 tag: "h1",
                 styleSheet: {
@@ -70,14 +65,14 @@ function HomeScreen({ posts  }) {
                 },
                 children: infos.nome
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(components_.Box, {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
                 styleSheet: {
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                     marginTop: '16px',
                     gridGap: '16px'
                 },
-                children: posts.map(({ title , content , id  })=>/*#__PURE__*/ jsx_runtime_.jsx(Post, {
+                children: posts.map(({ title , content , id  })=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
                         title: title,
                         content: content,
                         id: id
@@ -88,7 +83,7 @@ function HomeScreen({ posts  }) {
     }));
 };
 function Post({ title , content , id  }) {
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(components_.Box, {
+    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
         styleSheet: {
             flexDirection: 'column',
             border: '1px solid #F9703E',
@@ -101,10 +96,10 @@ function Post({ title , content , id  }) {
             }
         },
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
                 href: `posts/${id}`,
                 passHref: true,
-                children: /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
                     tag: "a",
                     variant: "heading4",
                     styleSheet: {
@@ -115,7 +110,7 @@ function Post({ title , content , id  }) {
                     children: title
                 })
             }),
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(components_.Text, {
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
                 children: [
                     content.substring(0, 140),
                     "..."
@@ -247,7 +242,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664], () => (__webpack_exec__(767)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664], () => (__webpack_exec__(678)));
 module.exports = __webpack_exports__;
 
 })();
