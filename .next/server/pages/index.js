@@ -40,44 +40,45 @@ function HomeScreen({ posts  }) {
     // const posts = dados.posts;
     return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
         styleSheet: {
-            flexDirection: 'column',
-            margin: '32px auto',
-            maxWidth: '800px',
-            paddingHorizontal: '16px'
+            flexDirection: "column",
+            margin: "32px auto",
+            maxWidth: "800px",
+            paddingHorizontal: "16px"
         },
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Image, {
                 src: `https://github.com/${infos.githubUser}.png`,
                 styleSheet: {
-                    width: '150px',
-                    height: '150px',
-                    borderRadius: '50%',
-                    margin: '0 auto',
-                    border: '2px solid #F9703E'
+                    width: "150px",
+                    height: "150px",
+                    borderRadius: "50%",
+                    margin: "0 auto",
+                    border: "2px solid #F9703E"
                 }
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
                 variant: "heading1",
                 tag: "h1",
                 styleSheet: {
-                    color: '#F9703E',
-                    justifyContent: 'center'
+                    color: "#F9703E",
+                    justifyContent: "center"
                 },
                 children: infos.nome
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
                 styleSheet: {
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    marginTop: '16px',
-                    gridGap: '16px'
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                    marginTop: "16px",
+                    gridGap: "16px"
                 },
-                children: posts.map(({ title , content , id  })=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
+                children: posts.map(({ title , content , id ,  }, index)=>{
+                    return index <= 2 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
                         title: title,
                         content: content,
                         id: id
-                    }, id)
-                )
+                    }, id);
+                })
             })
         ]
     }));

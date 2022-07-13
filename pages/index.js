@@ -25,42 +25,46 @@ export default function HomeScreen({ posts }) {
   return (
     <Box
       styleSheet={{
-        flexDirection: 'column',
-        margin: '32px auto',
-        maxWidth: '800px',
-        paddingHorizontal: '16px',
+        flexDirection: "column",
+        margin: "32px auto",
+        maxWidth: "800px",
+        paddingHorizontal: "16px",
       }}
     >
       <Image
         src={`https://github.com/${infos.githubUser}.png`}
         styleSheet={{
-          width: '150px',
-          height: '150px',
-          borderRadius: '50%',
-          margin: '0 auto',
-          border: '2px solid #F9703E',
+          width: "150px",
+          height: "150px",
+          borderRadius: "50%",
+          margin: "0 auto",
+          border: "2px solid #F9703E",
         }}
       />
       <Text
         variant="heading1"
         tag="h1"
-        styleSheet={{ color: '#F9703E', justifyContent: 'center' }}
+        styleSheet={{ color: "#F9703E", justifyContent: "center" }}
       >
         {infos.nome}
       </Text>
-      
-      <Box styleSheet={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        marginTop: '16px',
-        gridGap: '16px',
-      }}>
-        {posts.map(({ title, content, id }) => (
-          <Post key={id} title={title} content={content} id={id} />
-        ))}
+
+      <Box
+        styleSheet={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          marginTop: "16px",
+          gridGap: "16px",
+        }}
+      >
+        {posts.map(({ title, content, id,  },index) => {
+          return index <= 2 && (
+            <Post key={id} title={title} content={content} id={id} />
+          );
+        })}
       </Box>
     </Box>
-  )
+  );
 }
 
 function Post({ title, content, id }) {
