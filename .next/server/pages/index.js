@@ -73,7 +73,7 @@ function HomeScreen({ posts  }) {
                     gridGap: "16px"
                 },
                 children: posts.map(({ title , content , id ,  }, index)=>{
-                    return index <= 2 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
+                    return index <= 50 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
                         title: title,
                         content: content,
                         id: id

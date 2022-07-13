@@ -58,7 +58,7 @@ export default function HomeScreen({ posts }) {
         }}
       >
         {posts.map(({ title, content, id,  },index) => {
-          return index <= 2 && (
+          return index <= 50 && (
             <Post key={id} title={title} content={content} id={id} />
           );
         })}
