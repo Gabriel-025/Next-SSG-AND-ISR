@@ -1,5 +1,6 @@
 {
   "/_app": "pages/_app.js",
+  "/fullpost": "pages/fullpost.js",
   "/": "pages/index.js",
   "/posts/[id]": "pages/posts/[id].js",
   "/_error": "pages/_error.js",

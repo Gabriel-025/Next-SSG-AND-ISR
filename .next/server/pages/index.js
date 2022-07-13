@@ -65,6 +65,20 @@ function HomeScreen({ posts  }) {
                 },
                 children: infos.nome
             }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                href: "/fullpost",
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
+                    tag: "a",
+                    variant: "heading4",
+                    styleSheet: {
+                        display: " block",
+                        color: "#F9703E",
+                        marginBottom: "8px",
+                        cursor: "pointer"
+                    },
+                    children: "Todos os posts"
+                })
+            }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
                 styleSheet: {
                     display: "grid",
@@ -72,8 +86,8 @@ function HomeScreen({ posts  }) {
                     marginTop: "16px",
                     gridGap: "16px"
                 },
-                children: posts.map(({ title , content , id ,  }, index)=>{
-                    return index <= 50 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
+                children: posts.map(({ title , content , id  }, index)=>{
+                    return index <= 10 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
                         title: title,
                         content: content,
                         id: id
@@ -99,7 +113,6 @@ function Post({ title , content , id  }) {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
                 href: `posts/${id}`,
-                passHref: true,
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
                     tag: "a",
                     variant: "heading4",

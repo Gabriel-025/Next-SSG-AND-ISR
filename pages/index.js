@@ -48,7 +48,20 @@ export default function HomeScreen({ posts }) {
       >
         {infos.nome}
       </Text>
-
+      <NextLink href="/fullpost">
+        <Text
+          tag="a"
+          variant="heading4"
+          styleSheet={{
+            display: " block",
+            color: "#F9703E",
+            marginBottom: "8px",
+            cursor: "pointer",
+          }}
+        >
+          Todos os posts
+        </Text>
+      </NextLink>
       <Box
         styleSheet={{
           display: "grid",
@@ -57,9 +70,11 @@ export default function HomeScreen({ posts }) {
           gridGap: "16px",
         }}
       >
-        {posts.map(({ title, content, id,  },index) => {
-          return index <= 50 && (
-            <Post key={id} title={title} content={content} id={id} />
+        {posts.map(({ title, content, id }, index) => {
+          return (
+            index <= 10 && (
+              <Post key={id} title={title} content={content} id={id} />
+            )
           );
         })}
       </Box>
@@ -82,7 +97,7 @@ function Post({ title, content, id }) {
         }
       }}
     >
-      <NextLink href={`posts/${id}`} passHref>
+      <NextLink href={`posts/${id}`}  >
         <Text
           tag="a"
           variant="heading4"
@@ -91,7 +106,7 @@ function Post({ title, content, id }) {
           {title}
         </Text>
       </NextLink>
-      <Text>
+      <Text >
         {content.substring(0, 140)}...
       </Text>
     </Box>

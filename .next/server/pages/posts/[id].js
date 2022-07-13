@@ -71,7 +71,8 @@ function PostByIdScreen(props) {
     const post = {
         title: props.title,
         date: props.date,
-        content: props.content
+        content: props.content,
+        video: props.video
     };
     if (router.isFallback) {
         return 'Essa p\xe1gina n\xe3o existe, ainda!!';

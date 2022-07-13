@@ -46,6 +46,7 @@ export default function PostByIdScreen(props) {
     title: props.title,
     date: props.date,
     content: props.content,
+    video : props.video
   };
 
   if(router.isFallback) {
