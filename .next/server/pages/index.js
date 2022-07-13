@@ -75,6 +75,20 @@ function HomeScreen({ posts  }) {
                 },
                 children: "Principais Posts"
             }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
+                variant: "heading4",
+                tag: "h1",
+                styleSheet: {
+                    color: "#F9703E",
+                    justifyContent: "start"
+                },
+                children: [
+                    " ",
+                    "Numero total de posts:",
+                    posts.length,
+                    "!"
+                ]
+            }),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
                 styleSheet: {
                     display: "grid",
@@ -83,13 +97,14 @@ function HomeScreen({ posts  }) {
                     gridGap: "16px"
                 },
                 children: [
-                    " ",
                     posts.map(({ title , content , id  }, index)=>{
-                        return index <= 11 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
-                            title: title,
-                            content: content,
-                            id: id
-                        }, id);
+                        return index <= 11 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
+                                title: title,
+                                content: content,
+                                id: id
+                            }, id)
+                        });
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
                         href: "/fullpost",

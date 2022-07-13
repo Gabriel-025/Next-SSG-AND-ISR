@@ -60,7 +60,17 @@ export default function HomeScreen({ posts }) {
       >
         Principais Posts
       </Text>
-
+      <Text
+        variant="heading4"
+        tag="h1"
+        styleSheet={{
+        color: "#F9703E",
+        justifyContent: "start",
+        }}
+      >
+        {" "}
+        Numero total de posts:{posts.length}!
+      </Text>
       <Box
         styleSheet={{
           display: "grid",
@@ -69,11 +79,12 @@ export default function HomeScreen({ posts }) {
           gridGap: "16px",
         }}
       >
-        {" "}
         {posts.map(({ title, content, id }, index) => {
           return (
             index <= 11 && (
-              <Post key={id} title={title} content={content} id={id} />
+              <>
+                <Post key={id} title={title} content={content} id={id} />
+              </>
             )
           );
         })}
