@@ -36,9 +36,10 @@ export async function getStaticProps(context) {
       title: post.title,
       date: post.date,
       content: post.content,
-    }, 
+      video: post.video,
+    },
     revalidate: 60,
-  }
+  };
 }
 export default function PostByIdScreen(props) {
   const router = useRouter();
@@ -55,53 +56,86 @@ export default function PostByIdScreen(props) {
   return (
     <Box
       styleSheet={{
-        flexDirection: 'column',
-        margin: '32px auto',
-        maxWidth: '700px',
-        paddingHorizontal: '16px',
+        flexDirection: "column",
+        margin: "32px auto",
+        maxWidth: "700px",
+        paddingHorizontal: "16px",
       }}
     >
       {/* Cabeçalho */}
+
       <Text
         variant="heading2"
         tag="h1"
-        styleSheet={{ color: '#F9703E', justifyContent: 'center', lineHeight: '1.2' }}
+        styleSheet={{
+          color: "#F9703E",
+          justifyContent: "center",
+          lineHeight: "1.2",
+          cursor: "pointer",
+        }}
       >
         {post.title}
       </Text>
-      <Text styleSheet={{ color: '#F9703E', justifyContent: 'center', borderBottom: '1px solid #F9703E', paddingVertical: '16px', marginVertical: '16px' }}>
+
+      <Text
+        styleSheet={{
+          color: "#F9703E",
+          justifyContent: "space-between",
+          borderBottom: "1px solid #F9703E",
+          paddingVertical: "16px",
+          marginVertical: "16px",
+        }}
+      >
         {post.date}
+        <NextLink href="/fullpost" passHref>
+          <Text
+            tag="a"
+            styleSheet={{
+              color: "#F9703E",
+              hover: { textDecoration: "underline", cursor: "pointer" },
+            }}
+          >
+            Voltar para posts
+          </Text>
+        </NextLink>
+        <NextLink href="/" passHref>
+          <Text
+            tag="a"
+            styleSheet={{
+              color: "#F9703E",
+              hover: { textDecoration: "underline", cursor: "pointer" },
+            }}
+          >
+            Voltar para a home
+          </Text>
+        </NextLink>
       </Text>
 
       {/* Área de Conteudo */}
       <Box
         styleSheet={{
-          flexDirection: 'column',
+          flexDirection: "column",
         }}
       >
-        <Text>
-          {post.content}
-        </Text>
+        <Text>{post.content}</Text>
 
-        {post.video && <iframe style={{ marginTop: '32px', minHeight: '400px' }} src={post.video} /> }
+        {post.video && (
+          <iframe
+            style={{ marginTop: "32px", minHeight: "400px" }}
+            src={post.video}
+          />
+        )}
       </Box>
-
 
       {/* Rodapé */}
       <Box
         styleSheet={{
-          marginTop: '16px',
-          paddingVertical: '16px',
-          borderTop: '1px solid #F9703E',
-          color: '#F9703E',
+          marginTop: "16px",
+          paddingVertical: "16px",
+          borderTop: "1px solid #F9703E",
+          color: "#F9703E",
         }}
-      >
-        <NextLink href="/" passHref>
-          <Text tag="a" styleSheet={{ hover: { textDecoration: 'underline' } }}>
-            Voltar para a home
-          </Text>
-        </NextLink>
-      </Box>
+      ></Box>
     </Box>
-  )
+  );
 }

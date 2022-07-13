@@ -61,7 +61,8 @@ async function getStaticProps(context) {
             id: post.id,
             title: post.title,
             date: post.date,
-            content: post.content
+            content: post.content,
+            video: post.video
         },
         revalidate: 60
     };
@@ -79,35 +80,68 @@ function PostByIdScreen(props) {
     }
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(components_.Box, {
         styleSheet: {
-            flexDirection: 'column',
-            margin: '32px auto',
-            maxWidth: '700px',
-            paddingHorizontal: '16px'
+            flexDirection: "column",
+            margin: "32px auto",
+            maxWidth: "700px",
+            paddingHorizontal: "16px"
         },
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
                 variant: "heading2",
                 tag: "h1",
                 styleSheet: {
-                    color: '#F9703E',
-                    justifyContent: 'center',
-                    lineHeight: '1.2'
+                    color: "#F9703E",
+                    justifyContent: "center",
+                    lineHeight: "1.2",
+                    cursor: "pointer"
                 },
                 children: post.title
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(components_.Text, {
                 styleSheet: {
-                    color: '#F9703E',
-                    justifyContent: 'center',
-                    borderBottom: '1px solid #F9703E',
-                    paddingVertical: '16px',
-                    marginVertical: '16px'
+                    color: "#F9703E",
+                    justifyContent: "space-between",
+                    borderBottom: "1px solid #F9703E",
+                    paddingVertical: "16px",
+                    marginVertical: "16px"
                 },
-                children: post.date
+                children: [
+                    post.date,
+                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                        href: "/fullpost",
+                        passHref: true,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
+                            tag: "a",
+                            styleSheet: {
+                                color: "#F9703E",
+                                hover: {
+                                    textDecoration: "underline",
+                                    cursor: "pointer"
+                                }
+                            },
+                            children: "Voltar para posts"
+                        })
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                        href: "/",
+                        passHref: true,
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
+                            tag: "a",
+                            styleSheet: {
+                                color: "#F9703E",
+                                hover: {
+                                    textDecoration: "underline",
+                                    cursor: "pointer"
+                                }
+                            },
+                            children: "Voltar para a home"
+                        })
+                    })
+                ]
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)(components_.Box, {
                 styleSheet: {
-                    flexDirection: 'column'
+                    flexDirection: "column"
                 },
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
@@ -115,8 +149,8 @@ function PostByIdScreen(props) {
                     }),
                     post.video && /*#__PURE__*/ jsx_runtime_.jsx("iframe", {
                         style: {
-                            marginTop: '32px',
-                            minHeight: '400px'
+                            marginTop: "32px",
+                            minHeight: "400px"
                         },
                         src: post.video
                     })
@@ -124,24 +158,11 @@ function PostByIdScreen(props) {
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(components_.Box, {
                 styleSheet: {
-                    marginTop: '16px',
-                    paddingVertical: '16px',
-                    borderTop: '1px solid #F9703E',
-                    color: '#F9703E'
-                },
-                children: /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
-                    href: "/",
-                    passHref: true,
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(components_.Text, {
-                        tag: "a",
-                        styleSheet: {
-                            hover: {
-                                textDecoration: 'underline'
-                            }
-                        },
-                        children: "Voltar para a home"
-                    })
-                })
+                    marginTop: "16px",
+                    paddingVertical: "16px",
+                    borderTop: "1px solid #F9703E",
+                    color: "#F9703E"
+                }
             })
         ]
     }));

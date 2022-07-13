@@ -29,7 +29,7 @@ async function getStaticProps() {
         props: {
             posts: post.posts
         },
-        revalidate: 10 * 60
+        revalidate: 60
     };
 }
 function HomeScreen({ posts  }) {
@@ -65,34 +65,47 @@ function HomeScreen({ posts  }) {
                 },
                 children: infos.nome
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
-                href: "/fullpost",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
-                    tag: "a",
-                    variant: "heading4",
-                    styleSheet: {
-                        display: " block",
-                        color: "#F9703E",
-                        marginBottom: "8px",
-                        cursor: "pointer"
-                    },
-                    children: "Todos os posts"
-                })
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
+                variant: "heading5",
+                tag: "h1",
+                styleSheet: {
+                    color: "#F9703E",
+                    justifyContent: "center",
+                    lineHeight: "1.2"
+                },
+                children: "Principais Posts"
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Box, {
                 styleSheet: {
                     display: "grid",
                     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
                     marginTop: "16px",
                     gridGap: "16px"
                 },
-                children: posts.map(({ title , content , id  }, index)=>{
-                    return index <= 10 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
-                        title: title,
-                        content: content,
-                        id: id
-                    }, id);
-                })
+                children: [
+                    " ",
+                    posts.map(({ title , content , id  }, index)=>{
+                        return index <= 11 && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Post, {
+                            title: title,
+                            content: content,
+                            id: id
+                        }, id);
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                        href: "/fullpost",
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_skynexui_components__WEBPACK_IMPORTED_MODULE_2__.Text, {
+                            tag: "a",
+                            variant: "heading4",
+                            styleSheet: {
+                                display: " block",
+                                color: "#F9703E",
+                                marginBottom: "8px",
+                                cursor: "pointer"
+                            },
+                            children: "Todos os posts"
+                        })
+                    })
+                ]
             })
         ]
     }));
@@ -119,7 +132,8 @@ function Post({ title , content , id  }) {
                     styleSheet: {
                         display: ' block',
                         color: '#F9703E',
-                        marginBottom: '8px'
+                        marginBottom: '8px',
+                        cursor: "pointer"
                     },
                     children: title
                 })

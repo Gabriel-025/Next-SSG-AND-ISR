@@ -12,7 +12,7 @@ export async function getStaticProps() {
     props: {
       posts: post.posts,
     },
-    revalidate: 10 * 60,
+    revalidate: 60,
   };
 }
 
@@ -48,20 +48,19 @@ export default function HomeScreen({ posts }) {
       >
         {infos.nome}
       </Text>
-      <NextLink href="/fullpost">
-        <Text
-          tag="a"
-          variant="heading4"
-          styleSheet={{
-            display: " block",
-            color: "#F9703E",
-            marginBottom: "8px",
-            cursor: "pointer",
-          }}
-        >
-          Todos os posts
-        </Text>
-      </NextLink>
+
+      <Text
+        variant="heading5"
+        tag="h1"
+        styleSheet={{
+          color: "#F9703E",
+          justifyContent: "center",
+          lineHeight: "1.2",
+        }}
+      >
+        Principais Posts
+      </Text>
+
       <Box
         styleSheet={{
           display: "grid",
@@ -70,13 +69,28 @@ export default function HomeScreen({ posts }) {
           gridGap: "16px",
         }}
       >
+        {" "}
         {posts.map(({ title, content, id }, index) => {
           return (
-            index <= 10 && (
+            index <= 11 && (
               <Post key={id} title={title} content={content} id={id} />
             )
           );
         })}
+        <NextLink href="/fullpost">
+          <Text
+            tag="a"
+            variant="heading4"
+            styleSheet={{
+              display: " block",
+              color: "#F9703E",
+              marginBottom: "8px",
+              cursor: "pointer",
+            }}
+          >
+            Todos os posts
+          </Text>
+        </NextLink>
       </Box>
     </Box>
   );
@@ -101,7 +115,7 @@ function Post({ title, content, id }) {
         <Text
           tag="a"
           variant="heading4"
-          styleSheet={{ display:' block', color: '#F9703E', marginBottom: '8px' }}
+          styleSheet={{ display:' block', color: '#F9703E', marginBottom: '8px',cursor:"pointer" }}
         >
           {title}
         </Text>
